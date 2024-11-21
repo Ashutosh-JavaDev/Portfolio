@@ -24,27 +24,27 @@ html {
 }
 .pimg1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
-    url("Images/hindu-temple-1610625_1280.jpg");
+    url("../Image/hindu-temple-1610625_1280.jpg");
   min-height: 100%;
 }
 .pimg2 {
-  background-image: url("Images/pexels-lisa-fotios-1750566.jpg");
+  background-image: url("../Image/pexels-lisa-fotios-1750566.jpg");
   min-height: 600px;
 }
 .pimg3 {
-  background-image: url("Images/pexels-tara-winstead-8383486.jpg");
+  background-image: url("../Image/pexels-tara-winstead-8383486.jpg");
   min-height: 700px;
 }
 .pimg4 {
-  background-image: url("Images/murudeshwar-172586_1280.jpg");
+  background-image: url("../Image/murudeshwar-172586_1280.jpg");
   min-height: 700px;
 }
 .pimg5 {
-  background-image: url("Images/holi-2416686_1280.jpg");
+  background-image: url("../Image/holi-2416686_1280.jpg");
   min-height: 700px;
 }
 .pimg6 {
-  background-image: url("Images/outdoor-6615901_1280.jpg");
+  background-image: url("../Image/outdoor-6615901_1280.jpg");
   min-height: 700px;
 }
 .pimg7 {
