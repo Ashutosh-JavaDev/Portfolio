@@ -1,4 +1,4 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
+  @import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap");
 
 :root {
   --primary-color: #6366f1;
@@ -203,10 +203,15 @@ body {
   color: var(--link-color);
   /* box-shadow: 2px 2px 3px yellow; */
 }
-
+.insta i{
+  color: var(--accent-color);
+}
 .github i {
   color: black;
   /* box-shadow: 2px 2px 3px blue; */
+}
+.linkedin{
+  color: var(--link-color);
 }
 /* Advantage Section */
 .Advantage-section {
