@@ -4,112 +4,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Detailed Explanation</title>
+  <title>Why I Choose Java</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800 font-sans p-5">
+<body class="bg-gray-100 text-gray-800 font-sans">
 
-  <!-- Page Header -->
-  <div class="text-center mb-8">
-    <h1 class="text-3xl font-bold text-gray-700">Detailed Explanation of the Code</h1>
-    <p class="text-lg text-gray-500">Understand each section of the code in detail.</p>
+  <div class="container mx-auto p-5">
+    <!-- Section Header -->
+    <div class="text-center mb-8">
+      <h1 class="text-4xl font-bold text-gray-700 mb-4">Why I Choose Java as My First Programming Language?</h1>
+      <p class="text-lg text-gray-500">Discover why Java became my gateway to the programming world.</p>
+    </div>
+
+    <!-- Reasons Table -->
+    <div class="fade-in">
+      <table class="table-auto bg-white shadow-lg rounded-lg p-5 w-full text-left border-collapse">
+        <thead>
+          <tr class="bg-blue-500 text-white">
+            <th class="px-4 py-2">Reason</th>
+            <th class="px-4 py-2">Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-bold text-blue-600">Versatility</td>
+            <td class="px-4 py-2">Java is platform-independent, meaning "write once, run anywhere" (WORA). It's used for desktop, web, and mobile applications.</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-bold text-blue-600">Object-Oriented</td>
+            <td class="px-4 py-2">Java's object-oriented approach makes it easier to build modular, reusable, and scalable code.</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-bold text-blue-600">Rich API</td>
+            <td class="px-4 py-2">Java provides a robust API for handling utilities, networking, XML parsing, and more.</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-bold text-blue-600">Strong Community</td>
+            <td class="px-4 py-2">Java has a vast developer community, making it easy to find support, libraries, and frameworks.</td>
+          </tr>
+          <tr class="border-b">
+            <td class="px-4 py-2 font-bold text-blue-600">Job Opportunities</td>
+            <td class="px-4 py-2">Java developers are in high demand, with numerous roles in software development.</td>
+          </tr>
+          <tr>
+            <td class="px-4 py-2 font-bold text-blue-600">Security Features</td>
+            <td class="px-4 py-2">Java is well-known for its built-in security features, which makes it a reliable choice for building applications.</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <!-- Add Some Interaction -->
+    <div class="text-center mt-10">
+      <button id="toggleTable" class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+        Toggle Table Visibility
+      </button>
+    </div>
   </div>
 
-  <!-- Detailed Explanation Section -->
-  <div class="bg-white p-5 rounded-lg shadow-lg">
-    <ol class="list-decimal list-inside text-lg space-y-4">
-      <li>
-        <strong>HTML Structure:</strong>
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>&lt;html&gt; and &lt;head&gt;:</strong> The document starts with the <code>&lt;!DOCTYPE html&gt;</code> declaration to ensure the page uses HTML5. The <code>&lt;head&gt;</code> section contains meta tags for defining character set and responsiveness, and the <code>&lt;title&gt;</code> sets the page's title.
-          </li>
-          <li>
-            <strong>Loading Tailwind CSS:</strong> Tailwind CSS is loaded dynamically via its CDN link, providing access to utility-first CSS classes.
-          </li>
-          <li>
-            <strong>Custom Styles:</strong> The <code>.fade-in</code> class defines a fade-in animation with transitions for opacity and vertical movement, and the <code>.active</code> class applies the final state for visibility.
-          </li>
-        </ul>
-      </li>
+  <!-- JavaScript -->
+  <script>
+    // JavaScript for animations and interactivity
+    document.addEventListener('DOMContentLoaded', () => {
+      const table = document.querySelector('.fade-in');
+      setTimeout(() => {
+        table.classList.add('active');
+      }, 200); // Delay to ensure the animation effect
 
-      <li>
-        <strong>Header Section:</strong> 
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>Purpose:</strong> Introduces the topic: "Why I Choose Java as My First Programming Language?" with a heading styled using Tailwind classes like <code>text-4xl</code> and <code>font-bold</code>.
-          </li>
-          <li>
-            <strong>Description:</strong> A paragraph provides a brief explanation about the section, styled with <code>text-lg</code> and <code>text-gray-500</code>.
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <strong>Reasons Section (List):</strong>
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>Unordered List:</strong> Reasons are structured in a list using the <code>&lt;ul&gt;</code> tag, styled with Tailwind classes like <code>list-disc</code> for bullet points and <code>list-inside</code> for alignment.
-          </li>
-          <li>
-            <strong>Styling:</strong> Each reason has a <code>&lt;strong&gt;</code> tag for emphasis and uses <code>text-blue-600</code> to highlight titles.
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <strong>Button for Interactivity:</strong>
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>Purpose:</strong> A button allows toggling the visibility of the reasons list, creating a dynamic user experience.
-          </li>
-          <li>
-            <strong>Styling:</strong> The button uses Tailwind classes like <code>bg-blue-500</code> for color and <code>hover:bg-blue-600</code> for a hover effect.
-          </li>
-          <li>
-            <strong>Functionality:</strong> JavaScript toggles the <code>.active</code> class on the list when the button is clicked, controlling the fade-in animation.
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <strong>JavaScript Section:</strong>
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>Adding Animation:</strong> The <code>DOMContentLoaded</code> event ensures animations start after the page loads. A delay of 200ms is applied before adding the <code>.active</code> class.
-          </li>
-          <li>
-            <strong>Toggle Visibility:</strong> The <code>toggleTable</code> button's click event toggles the visibility of the list by adding/removing the <code>.active</code> class dynamically.
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <strong>Tailwind CSS Utility:</strong>
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>Why Tailwind?:</strong> Tailwind provides a utility-first approach to styling, reducing the need for custom CSS.
-          </li>
-          <li>
-            <strong>Styling Highlights:</strong> Key utilities used include <code>text-gray-700</code> for text color, <code>shadow-lg</code> for depth, and <code>rounded-lg</code> for smooth edges.
-          </li>
-        </ul>
-      </li>
-
-      <li>
-        <strong>Accessibility and UX:</strong>
-        <ul class="list-disc list-inside ml-5">
-          <li>
-            <strong>Responsive Design:</strong> The <code>viewport</code> meta tag and Tailwind's utility classes ensure the page is mobile-friendly.
-          </li>
-          <li>
-            <strong>Interactive Experience:</strong> The fade-in animation and toggle button enhance the user's experience.
-          </li>
-        </ul>
-      </li>
-    </ol>
-  </div>
+      const toggleButton = document.getElementById('toggleTable');
+      toggleButton.addEventListener('click', () => {
+        table.classList.toggle('active');
+      });
+    });
+  </script>
 
 </body>
 
