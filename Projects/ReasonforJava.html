@@ -1,96 +1,11 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why I Choose Java</title>
-  <script src="https://cdn.tailwindcss.com"></script>
-  <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
-    }
-
-    .fade-in.active {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
 </head>
-
-<body class="bg-gray-100 text-gray-800 font-sans">
-
-  <div class="container mx-auto p-5">
-    <!-- Section Header -->
-    <div class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-gray-700 mb-4">Why I Choose Java as My First Programming Language?</h1>
-      <p class="text-lg text-gray-500">Discover why Java became my gateway to the programming world.</p>
-    </div>
-
-    <!-- Reasons Table -->
-    <div class="overflow-x-auto">
-      <table class="table-auto w-full border-collapse border border-gray-300 shadow-lg fade-in">
-        <thead>
-          <tr class="bg-gray-200">
-            <th class="border border-gray-300 px-4 py-2">Reason</th>
-            <th class="border border-gray-300 px-4 py-2">Description</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td class="border border-gray-300 px-4 py-2">1. Versatility</td>
-            <td class="border border-gray-300 px-4 py-2">Java is platform-independent, meaning "write once, run anywhere" (WORA). It's used for desktop, web, and mobile applications.</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="border border-gray-300 px-4 py-2">2. Object-Oriented</td>
-            <td class="border border-gray-300 px-4 py-2">Java's object-oriented approach makes it easier to build modular, reusable, and scalable code.</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-4 py-2">3. Rich API</td>
-            <td class="border border-gray-300 px-4 py-2">Java provides a robust API for handling utilities, networking, XML parsing, and more.</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="border border-gray-300 px-4 py-2">4. Strong Community</td>
-            <td class="border border-gray-300 px-4 py-2">Java has a vast developer community, making it easy to find support, libraries, and frameworks.</td>
-          </tr>
-          <tr>
-            <td class="border border-gray-300 px-4 py-2">5. Job Opportunities</td>
-            <td class="border border-gray-300 px-4 py-2">Java developers are in high demand, with numerous roles in software development.</td>
-          </tr>
-          <tr class="bg-gray-50">
-            <td class="border border-gray-300 px-4 py-2">6. Security Features</td>
-            <td class="border border-gray-300 px-4 py-2">Java is well-known for its built-in security features, which makes it a reliable choice for building applications.</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-
-    <!-- Add Some Interaction -->
-    <div class="text-center mt-10">
-      <button id="toggleTable" class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
-        Toggle Table Visibility
-      </button>
-    </div>
-  </div>
-
-  <!-- JavaScript -->
-  <script>
-    // JavaScript for animations
-    document.addEventListener('DOMContentLoaded', () => {
-      const table = document.querySelector('.fade-in');
-      setTimeout(() => {
-        table.classList.add('active');
-      }, 200); // Delay to ensure the animation effect
-
-      const toggleButton = document.getElementById('toggleTable');
-      toggleButton.addEventListener('click', () => {
-        table.classList.toggle('active');
-      });
-    });
-  </script>
-
+<body>
+    
 </body>
-
 </html>
