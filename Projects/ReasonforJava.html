@@ -4,7 +4,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Why I Choose Java</title>
+  <title>Why I Chose Java</title>
   <script src="https://cdn.tailwindcss.com"></script>
   <style>
     .fade-in {
@@ -17,6 +17,15 @@
       opacity: 1;
       transform: translateY(0);
     }
+
+    .highlight {
+      background-color: #fef3c7; /* Light yellow highlight */
+      transition: background-color 0.5s ease;
+    }
+
+    .highlight:hover {
+      background-color: #fde68a; /* Slightly darker yellow */
+    }
   </style>
 </head>
 
@@ -25,8 +34,8 @@
   <div class="container mx-auto p-5">
     <!-- Section Header -->
     <div class="text-center mb-8">
-      <h1 class="text-4xl font-bold text-gray-700 mb-4">Why I Choose Java as My First Programming Language?</h1>
-      <p class="text-lg text-gray-500">Discover why Java became my gateway to the programming world.</p>
+      <h1 class="text-4xl font-bold text-gray-700 mb-4">Why I Chose Java as My First Programming Language?</h1>
+      <p class="text-lg text-gray-500">Explore the detailed reasons that make Java an excellent gateway into the world of programming.</p>
     </div>
 
     <!-- Reasons Table -->
@@ -39,29 +48,29 @@
           </tr>
         </thead>
         <tbody>
-          <tr class="border-b">
+          <tr class="border-b highlight">
             <td class="px-4 py-2 font-bold text-blue-600">Versatility</td>
-            <td class="px-4 py-2">Java is platform-independent, meaning "write once, run anywhere" (WORA). It's used for desktop, web, and mobile applications.</td>
+            <td class="px-4 py-2">Java is platform-independent due to the Java Virtual Machine (JVM). This allows developers to write code once and run it on any platform, making it a go-to language for web, mobile, and enterprise applications.</td>
           </tr>
-          <tr class="border-b">
+          <tr class="border-b highlight">
             <td class="px-4 py-2 font-bold text-blue-600">Object-Oriented</td>
-            <td class="px-4 py-2">Java's object-oriented approach makes it easier to build modular, reusable, and scalable code.</td>
+            <td class="px-4 py-2">Java's object-oriented programming paradigm simplifies code organization and enables the reuse of classes and objects, which is essential for building scalable and maintainable software.</td>
           </tr>
-          <tr class="border-b">
+          <tr class="border-b highlight">
             <td class="px-4 py-2 font-bold text-blue-600">Rich API</td>
-            <td class="px-4 py-2">Java provides a robust API for handling utilities, networking, XML parsing, and more.</td>
+            <td class="px-4 py-2">The extensive API support in Java provides ready-made solutions for tasks like file handling, networking, and data structures, saving time and effort for developers.</td>
           </tr>
-          <tr class="border-b">
+          <tr class="border-b highlight">
             <td class="px-4 py-2 font-bold text-blue-600">Strong Community</td>
-            <td class="px-4 py-2">Java has a vast developer community, making it easy to find support, libraries, and frameworks.</td>
+            <td class="px-4 py-2">The massive global Java community ensures a wealth of resources, tutorials, and support forums, making it easier to solve problems and find new learning opportunities.</td>
           </tr>
-          <tr class="border-b">
+          <tr class="border-b highlight">
             <td class="px-4 py-2 font-bold text-blue-600">Job Opportunities</td>
-            <td class="px-4 py-2">Java developers are in high demand, with numerous roles in software development.</td>
+            <td class="px-4 py-2">Java developers are highly sought after in the industry, with roles spanning software development, web services, Android apps, and cloud solutions.</td>
           </tr>
-          <tr>
+          <tr class="highlight">
             <td class="px-4 py-2 font-bold text-blue-600">Security Features</td>
-            <td class="px-4 py-2">Java is well-known for its built-in security features, which makes it a reliable choice for building applications.</td>
+            <td class="px-4 py-2">Java is renowned for its robust security features, such as bytecode verification and runtime checks, making it ideal for secure application development.</td>
           </tr>
         </tbody>
       </table>
@@ -72,21 +81,38 @@
       <button id="toggleTable" class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
         Toggle Table Visibility
       </button>
+      <button id="highlightRows" class="ml-4 px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-green-600">
+        Highlight Rows
+      </button>
     </div>
   </div>
 
   <!-- JavaScript -->
   <script>
-    // JavaScript for animations and interactivity
     document.addEventListener('DOMContentLoaded', () => {
       const table = document.querySelector('.fade-in');
+      const toggleButton = document.getElementById('toggleTable');
+      const highlightButton = document.getElementById('highlightRows');
+
+      // Animate the table on page load
       setTimeout(() => {
         table.classList.add('active');
-      }, 200); // Delay to ensure the animation effect
+      }, 200);
 
-      const toggleButton = document.getElementById('toggleTable');
+      // Toggle table visibility
       toggleButton.addEventListener('click', () => {
         table.classList.toggle('active');
+      });
+
+      // Add highlight animation to rows
+      highlightButton.addEventListener('click', () => {
+        const rows = document.querySelectorAll('.highlight');
+        rows.forEach((row, index) => {
+          setTimeout(() => {
+            row.classList.add('bg-yellow-200');
+            setTimeout(() => row.classList.remove('bg-yellow-200'), 1000);
+          }, index * 200);
+        });
       });
     });
   </script>
