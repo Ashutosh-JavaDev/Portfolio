@@ -26,56 +26,104 @@
     .highlight:hover {
       background-color: #fde68a;
     }
+
+    .card {
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+    .card:hover {
+      transform: scale(1.05);
+      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    }
   </style>
 </head>
 
-<body class="bg-gray-100 text-gray-800 font-sans">
+<body class="bg-gradient-to-b from-blue-100 to-gray-100 text-gray-800 font-sans">
 
   <!-- Header Section -->
-  <div class="container mx-auto p-5">
-    <div class="text-center mb-8">
-      <h1 class="text-5xl font-bold text-gray-700 mb-4 fade-in">Why I Choose DSA?</h1>
-      <p class="text-lg text-gray-500 fade-in">
-        Mastering Data Structures and Algorithms (DSA) is not just about solving problems but solving them in the most logical and efficient way.
-      </p>
+  <header class="bg-blue-500 text-white py-6">
+    <div class="container mx-auto text-center">
+      <h1 class="text-5xl font-bold mb-2 fade-in">Why I Choose DSA?</h1>
+      <p class="text-lg font-light fade-in">Unlocking the power of problem-solving, logical thinking, and efficient coding.</p>
     </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container mx-auto p-6">
+    <!-- Introduction Section -->
+    <section class="mb-10 fade-in">
+      <div class="bg-white shadow-lg rounded-lg p-6 text-center">
+        <h2 class="text-3xl font-bold text-gray-700 mb-4">What is DSA?</h2>
+        <p class="text-gray-600 leading-relaxed">
+          Data Structures and Algorithms (DSA) form the core of computer science. It’s the study of organizing data and designing algorithms that solve problems in a structured and efficient way. Whether it’s searching for an element in a database, optimizing a process, or solving real-world problems, DSA is the foundation for building solutions.
+        </p>
+      </div>
+    </section>
 
     <!-- Reasons Section -->
-    <div class="fade-in">
-      <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
-        <h2 class="text-2xl font-bold text-blue-600 mb-3">Reason 1: Problem-Solving Mastery</h2>
-        <p class="text-gray-600">
-          Focusing on DSA has improved my problem-solving abilities and logical thinking, enabling me to break down complex problems into manageable solutions.
-        </p>
+    <section class="fade-in">
+      <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Reasons to Choose DSA</h2>
+      <div class="grid md:grid-cols-2 gap-6">
+        <div class="bg-white shadow-lg rounded-lg p-6 card">
+          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 1: Problem-Solving Mastery</h3>
+          <p class="text-gray-600">
+            DSA enhances problem-solving skills by encouraging logical thinking and structured approaches. It helps break down complex problems into smaller, manageable steps, fostering a solution-oriented mindset essential for programming and beyond.
+          </p>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg p-6 card">
+          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 2: Building Efficient Solutions</h3>
+          <p class="text-gray-600">
+            Understanding algorithms ensures that solutions are not only correct but also optimized for speed and resource usage. This efficiency is crucial for applications handling vast amounts of data or requiring real-time responses.
+          </p>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg p-6 card">
+          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 3: Competitive Programming</h3>
+          <p class="text-gray-600">
+            Competitive programming relies heavily on DSA knowledge. It equips programmers with the tools needed to solve challenging problems under time constraints, sharpening their skills for real-world applications.
+          </p>
+        </div>
+        <div class="bg-white shadow-lg rounded-lg p-6 card">
+          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 4: Cracking Technical Interviews</h3>
+          <p class="text-gray-600">
+            DSA is a cornerstone of technical interviews for software development roles. Employers value candidates who can design optimized solutions, making DSA expertise a critical asset for career growth.
+          </p>
+        </div>
       </div>
+    </section>
 
-      <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
-        <h2 class="text-2xl font-bold text-blue-600 mb-3">Reason 2: Efficiency</h2>
-        <p class="text-gray-600">
-          DSA teaches how to develop solutions that are time-efficient and resource-efficient, making programs scalable and robust.
-        </p>
+    <!-- Benefits Section -->
+    <section class="mt-10 fade-in">
+      <div class="bg-gradient-to-r from-green-100 to-green-200 shadow-lg rounded-lg p-8 text-center">
+        <h2 class="text-3xl font-bold text-green-700 mb-4">How DSA Transforms You?</h2>
+        <ul class="list-disc list-inside text-left text-gray-700 leading-relaxed">
+          <li>Improves logical and analytical thinking.</li>
+          <li>Prepares you for solving real-world engineering challenges.</li>
+          <li>Enables efficient use of computational resources.</li>
+          <li>Builds a strong foundation for learning advanced technologies.</li>
+          <li>Provides an edge in competitive programming and interviews.</li>
+        </ul>
       </div>
-
-      <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
-        <h2 class="text-2xl font-bold text-blue-600 mb-3">Reason 3: Competitive Edge</h2>
-        <p class="text-gray-600">
-          DSA is the backbone of competitive programming and technical interviews, giving me a competitive edge in the tech industry.
-        </p>
-      </div>
-    </div>
+    </section>
 
     <!-- Interaction Section -->
-    <div class="text-center mt-10">
-      <button id="toggleReasons" class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+    <section class="text-center mt-10">
+      <button id="toggleReasons" class="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
         Toggle Reasons Visibility
       </button>
-      <button id="highlightReasons" class="ml-4 px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-green-600">
-        Highlight Reasons
+      <button id="highlightReasons" class="ml-4 px-6 py-3 bg-green-500 text-white font-bold rounded hover:bg-green-600">
+        Highlight Key Points
       </button>
-    </div>
-  </div>
+    </section>
+  </main>
 
-  <!-- JavaScript for Interactivity -->
+  <!-- Footer -->
+  <footer class="bg-gray-800 text-white py-6">
+    <div class="container mx-auto text-center">
+      <p>&copy; 2024 My DSA Journey | Designed with Passion and Tailwind CSS</p>
+    </div>
+  </footer>
+
+  <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
       const reasons = document.querySelectorAll('.fade-in');
@@ -92,7 +140,7 @@
         reasons.forEach(reason => reason.classList.toggle('active'));
       });
 
-      // Highlight reasons sequentially
+      // Highlight reasons
       highlightButton.addEventListener('click', () => {
         reasons.forEach((reason, index) => {
           setTimeout(() => {
