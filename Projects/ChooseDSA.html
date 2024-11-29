@@ -1,11 +1,109 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Why I Choose DSA?</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style>
+    .fade-in {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.8s ease-in-out;
+    }
+
+    .fade-in.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .highlight {
+      background-color: #fef3c7;
+      transition: background-color 0.5s ease;
+    }
+
+    .highlight:hover {
+      background-color: #fde68a;
+    }
+  </style>
 </head>
-<body>
-    
+
+<body class="bg-gray-100 text-gray-800 font-sans">
+
+  <!-- Header Section -->
+  <div class="container mx-auto p-5">
+    <div class="text-center mb-8">
+      <h1 class="text-5xl font-bold text-gray-700 mb-4 fade-in">Why I Choose DSA?</h1>
+      <p class="text-lg text-gray-500 fade-in">
+        Mastering Data Structures and Algorithms (DSA) is not just about solving problems but solving them in the most logical and efficient way.
+      </p>
+    </div>
+
+    <!-- Reasons Section -->
+    <div class="fade-in">
+      <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold text-blue-600 mb-3">Reason 1: Problem-Solving Mastery</h2>
+        <p class="text-gray-600">
+          Focusing on DSA has improved my problem-solving abilities and logical thinking, enabling me to break down complex problems into manageable solutions.
+        </p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold text-blue-600 mb-3">Reason 2: Efficiency</h2>
+        <p class="text-gray-600">
+          DSA teaches how to develop solutions that are time-efficient and resource-efficient, making programs scalable and robust.
+        </p>
+      </div>
+
+      <div class="bg-white shadow-lg rounded-lg p-6 mb-6">
+        <h2 class="text-2xl font-bold text-blue-600 mb-3">Reason 3: Competitive Edge</h2>
+        <p class="text-gray-600">
+          DSA is the backbone of competitive programming and technical interviews, giving me a competitive edge in the tech industry.
+        </p>
+      </div>
+    </div>
+
+    <!-- Interaction Section -->
+    <div class="text-center mt-10">
+      <button id="toggleReasons" class="px-4 py-2 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
+        Toggle Reasons Visibility
+      </button>
+      <button id="highlightReasons" class="ml-4 px-4 py-2 bg-green-500 text-white font-bold rounded hover:bg-green-600">
+        Highlight Reasons
+      </button>
+    </div>
+  </div>
+
+  <!-- JavaScript for Interactivity -->
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const reasons = document.querySelectorAll('.fade-in');
+      const toggleButton = document.getElementById('toggleReasons');
+      const highlightButton = document.getElementById('highlightReasons');
+
+      // Animate reasons on page load
+      setTimeout(() => {
+        reasons.forEach(reason => reason.classList.add('active'));
+      }, 200);
+
+      // Toggle visibility of reasons
+      toggleButton.addEventListener('click', () => {
+        reasons.forEach(reason => reason.classList.toggle('active'));
+      });
+
+      // Highlight reasons sequentially
+      highlightButton.addEventListener('click', () => {
+        reasons.forEach((reason, index) => {
+          setTimeout(() => {
+            reason.classList.add('highlight');
+            setTimeout(() => reason.classList.remove('highlight'), 1000);
+          }, index * 300);
+        });
+      });
+    });
+  </script>
+
 </body>
+
 </html>
