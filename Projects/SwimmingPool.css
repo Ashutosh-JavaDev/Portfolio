@@ -203,7 +203,7 @@ header {
   color: white;
 }
 .card button:hover {
-  background-color: rgba(128, 0, 128, 0.719);
+  background-cjpgolor: rgba(128, 0, 128, 0.719);
 }
 .card img {
   width: 100%;
@@ -212,7 +212,7 @@ header {
 /* box  3 */
 .box3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.788)),
-    url("Images/Picsart_23-12-12_13-26-13-650.jpg");
+    url("/Portfolio/Image/Picsart_23-12-12_13-26-13-650.jpg");
   height: 50vh;
   background-position: center;
   background-size: cover;
