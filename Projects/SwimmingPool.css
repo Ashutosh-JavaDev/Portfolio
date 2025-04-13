@@ -21,7 +21,7 @@ header {
 }
 .box1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.63)),
-    url("/Web-Development/Projects/Images/pexels-juan-salamanca-61129.jpg");
+    url("/Portfolio/Image/pexels-juan-salamanca-61129.jpg ");
   /* background-position: center; */
   background-size: cover;
   height: 100vh;
@@ -203,7 +203,7 @@ header {
   color: white;
 }
 .card button:hover {
-  background-cjpgolor: rgba(128, 0, 128, 0.719);
+  background-color: rgba(128, 0, 128, 0.719);
 }
 .card img {
   width: 100%;
@@ -313,7 +313,7 @@ header {
 /* box  5 */
 .box5 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.63)),
-    url("Images/pexels-archie-binamira-707185.jpg");
+    url("/Portfolio/Image/pexels-archie-binamira-707185.jpg");
   height: 50vh;
   background-position: center;
   background-size: cover;
@@ -410,7 +410,7 @@ header {
 /* Box 7 */
 .box7 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.788)),
-    url("Images/pexels-riccardo-307008.jpg");
+    url("/Portfolio/Image/pexels-riccardo-307008.jpg");
   height: 50vh;
   background-position: center;
   background-size: cover;
