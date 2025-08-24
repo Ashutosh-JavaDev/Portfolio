@@ -6,147 +6,577 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Why I Choose DSA?</title>
   <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          animation: {
+            'float': 'float 6s ease-in-out infinite',
+            'pulse-slow': 'pulse 3s cubic-bezier(0.4, 0, 0.6, 1) infinite',
+            'bounce-slow': 'bounce 2s infinite',
+            'slide-up': 'slideUp 0.8s ease-out',
+            'slide-in-left': 'slideInLeft 0.8s ease-out',
+            'slide-in-right': 'slideInRight 0.8s ease-out',
+            'rotate-slow': 'rotate 20s linear infinite',
+            'wiggle': 'wiggle 1s ease-in-out infinite',
+          },
+          keyframes: {
+            float: {
+              '0%, 100%': { transform: 'translateY(0px)' },
+              '50%': { transform: 'translateY(-20px)' },
+            },
+            slideUp: {
+              '0%': { transform: 'translateY(100px)', opacity: '0' },
+              '100%': { transform: 'translateY(0)', opacity: '1' },
+            },
+            slideInLeft: {
+              '0%': { transform: 'translateX(-100px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            slideInRight: {
+              '0%': { transform: 'translateX(100px)', opacity: '0' },
+              '100%': { transform: 'translateX(0)', opacity: '1' },
+            },
+            wiggle: {
+              '0%, 100%': { transform: 'rotate(-3deg)' },
+              '50%': { transform: 'rotate(3deg)' },
+            }
+          }
+        }
+      }
+    }
+  </script>
   <style>
-    .fade-in {
-      opacity: 0;
-      transform: translateY(20px);
-      transition: all 0.8s ease-in-out;
+    .gradient-text {
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
 
-    .fade-in.active {
+    .glass-morphism {
+      background: rgba(255, 255, 255, 0.1);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255, 255, 255, 0.2);
+    }
+
+    .neon-glow {
+      box-shadow: 0 0 20px rgba(59, 130, 246, 0.5);
+    }
+
+    .neon-glow:hover {
+      box-shadow: 0 0 30px rgba(59, 130, 246, 0.8);
+    }
+
+    .animated-gradient {
+      background: linear-gradient(-45deg, #667eea, #764ba2, #f093fb, #f5576c);
+      background-size: 400% 400%;
+      animation: gradient 15s ease infinite;
+    }
+
+    @keyframes gradient {
+      0% { background-position: 0% 50%; }
+      50% { background-position: 100% 50%; }
+      100% { background-position: 0% 50%; }
+    }
+
+    .card-hover {
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+    }
+
+    .card-hover:hover {
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0, 0, 0, 0.2);
+    }
+
+    .fade-in-up {
+      opacity: 0;
+      transform: translateY(50px);
+      transition: all 0.8s ease-out;
+    }
+
+    .fade-in-up.active {
       opacity: 1;
       transform: translateY(0);
     }
 
-    .highlight {
-      background-color: #fef3c7;
-      transition: background-color 0.5s ease;
+    .slide-in-left {
+      opacity: 0;
+      transform: translateX(-50px);
+      transition: all 0.8s ease-out;
     }
 
-    .highlight:hover {
-      background-color: #fde68a;
+    .slide-in-left.active {
+      opacity: 1;
+      transform: translateX(0);
     }
 
-    .card {
-      transition: transform 0.3s, box-shadow 0.3s;
+    .slide-in-right {
+      opacity: 0;
+      transform: translateX(50px);
+      transition: all 0.8s ease-out;
     }
 
-    .card:hover {
-      transform: scale(1.05);
-      box-shadow: 0 10px 15px rgba(0, 0, 0, 0.2);
+    .slide-in-right.active {
+      opacity: 1;
+      transform: translateX(0);
     }
+
+    .typing-animation {
+      overflow: hidden;
+      border-right: 3px solid #667eea;
+      white-space: nowrap;
+      animation: typing 3s steps(40, end), blink-caret 0.75s step-end infinite;
+    }
+
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink-caret {
+      from, to { border-color: transparent; }
+      50% { border-color: #667eea; }
+    }
+
+    .particle {
+      position: absolute;
+      border-radius: 50%;
+      pointer-events: none;
+    }
+
+    .floating-shapes {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      z-index: -1;
+    }
+
+    .shape {
+      position: absolute;
+      opacity: 0.1;
+      animation: float 20s infinite linear;
+    }
+
+    .shape:nth-child(1) { left: 10%; animation-delay: 0s; }
+    .shape:nth-child(2) { left: 20%; animation-delay: 2s; }
+    .shape:nth-child(3) { left: 30%; animation-delay: 4s; }
+    .shape:nth-child(4) { left: 40%; animation-delay: 6s; }
+    .shape:nth-child(5) { left: 50%; animation-delay: 8s; }
+    .shape:nth-child(6) { left: 60%; animation-delay: 10s; }
+    .shape:nth-child(7) { left: 70%; animation-delay: 12s; }
+    .shape:nth-child(8) { left: 80%; animation-delay: 14s; }
+    .shape:nth-child(9) { left: 90%; animation-delay: 16s; }
   </style>
 </head>
 
-<body class="bg-gradient-to-b from-blue-100 to-gray-100 text-gray-800 font-sans">
+<body class="animated-gradient min-h-screen overflow-x-hidden">
+  <!-- Floating Shapes Background -->
+  <div class="floating-shapes">
+    <div class="shape w-20 h-20 bg-blue-500 rounded-full"></div>
+    <div class="shape w-16 h-16 bg-purple-500 rounded-lg"></div>
+    <div class="shape w-12 h-12 bg-pink-500 rounded-full"></div>
+    <div class="shape w-24 h-24 bg-indigo-500 rounded-lg"></div>
+    <div class="shape w-18 h-18 bg-cyan-500 rounded-full"></div>
+    <div class="shape w-14 h-14 bg-teal-500 rounded-lg"></div>
+    <div class="shape w-22 h-22 bg-green-500 rounded-full"></div>
+    <div class="shape w-16 h-16 bg-yellow-500 rounded-lg"></div>
+    <div class="shape w-20 h-20 bg-orange-500 rounded-full"></div>
+  </div>
 
-  <!-- Header Section -->
-  <header class="bg-blue-500 text-white py-6">
-    <div class="container mx-auto text-center">
-      <h1 class="text-5xl font-bold mb-2 fade-in">Why I Choose DSA?</h1>
-      <p class="text-lg font-light fade-in">Unlocking the power of problem-solving, logical thinking, and efficient coding.</p>
+  <!-- Hero Section -->
+  <header class="relative min-h-screen flex items-center justify-center">
+    <div class="text-center z-10 px-4">
+      <div class="fade-in-up">
+        <div class="inline-block mb-8">
+          <div class="relative">
+            <h1 class="text-8xl md:text-9xl font-black text-white mb-4 animate-pulse-slow">
+              DSA
+            </h1>
+            <div class="absolute -top-4 -right-4 w-16 h-16 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce-slow">
+              <span class="text-3xl">🧠</span>
+            </div>
+            <div class="absolute -bottom-4 -left-4 w-12 h-12 bg-green-400 rounded-full flex items-center justify-center animate-wiggle">
+              <span class="text-2xl">⚡</span>
+            </div>
+          </div>
+        </div>
+        <h2 class="text-4xl md:text-6xl font-bold text-white mb-6 typing-animation">
+          Data Structures & Algorithms
+        </h2>
+        <p class="text-xl md:text-2xl text-white/90 max-w-4xl mx-auto leading-relaxed mb-8">
+          The foundation of computational thinking and problem-solving mastery
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 mb-8">
+          <span class="px-6 py-3 glass-morphism rounded-full text-white font-medium neon-glow">🚀 Problem Solving</span>
+          <span class="px-6 py-3 glass-morphism rounded-full text-white font-medium neon-glow">💡 Logical Thinking</span>
+          <span class="px-6 py-3 glass-morphism rounded-full text-white font-medium neon-glow">⚡ Optimization</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Scroll Indicator -->
+    <div class="absolute bottom-8 left-1/2 transform -translate-x-1/2 animate-bounce">
+      <div class="w-6 h-10 border-2 border-white rounded-full flex justify-center">
+        <div class="w-1 h-3 bg-white rounded-full mt-2 animate-pulse"></div>
+      </div>
     </div>
   </header>
 
   <!-- Main Content -->
-  <main class="container mx-auto p-6">
-    <!-- Introduction Section -->
-    <section class="mb-10 fade-in">
-      <div class="bg-white shadow-lg rounded-lg p-6 text-center">
-        <h2 class="text-3xl font-bold text-gray-700 mb-4">What is DSA?</h2>
-        <p class="text-gray-600 leading-relaxed">
-          Data Structures and Algorithms (DSA) form the core of computer science. It’s the study of organizing data and designing algorithms that solve problems in a structured and efficient way. Whether it’s searching for an element in a database, optimizing a process, or solving real-world problems, DSA is the foundation for building solutions.
-        </p>
+  <main class="relative z-10">
+    <!-- What is DSA Section -->
+    <section class="py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="glass-morphism rounded-3xl p-8 md:p-12 card-hover fade-in-up">
+          <div class="grid lg:grid-cols-2 gap-12 items-center">
+            <div class="slide-in-left">
+              <h2 class="text-5xl font-bold text-white mb-6">
+                What is <span class="gradient-text">DSA?</span>
+              </h2>
+              <p class="text-white/90 text-lg leading-relaxed mb-6">
+                Data Structures and Algorithms form the backbone of computer science. They're the tools that help us organize information efficiently and solve complex problems with elegant solutions.
+              </p>
+              <div class="space-y-4">
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-blue-500 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">1</span>
+                  </div>
+                  <span class="text-white">Organize data efficiently</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-green-500 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">2</span>
+                  </div>
+                  <span class="text-white">Solve problems systematically</span>
+                </div>
+                <div class="flex items-center space-x-3">
+                  <div class="w-8 h-8 bg-purple-500 rounded-full flex items-center justify-center">
+                    <span class="text-white font-bold">3</span>
+                  </div>
+                  <span class="text-white">Optimize performance</span>
+                </div>
+              </div>
+            </div>
+            <div class="slide-in-right">
+              <div class="relative">
+                <div class="w-80 h-80 mx-auto bg-gradient-to-br from-blue-400 via-purple-500 to-pink-500 rounded-full flex items-center justify-center animate-rotate-slow">
+                  <div class="w-64 h-64 bg-white rounded-full flex items-center justify-center">
+                    <div class="text-6xl font-black gradient-text">DSA</div>
+                  </div>
+                </div>
+                <div class="absolute top-0 right-0 w-20 h-20 bg-yellow-400 rounded-full flex items-center justify-center animate-bounce-slow">
+                  <span class="text-3xl">📊</span>
+                </div>
+                <div class="absolute bottom-0 left-0 w-16 h-16 bg-green-400 rounded-full flex items-center justify-center animate-pulse-slow">
+                  <span class="text-2xl">🔍</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
     <!-- Reasons Section -->
-    <section class="fade-in">
-      <h2 class="text-3xl font-bold text-gray-700 mb-6 text-center">Reasons to Choose DSA</h2>
-      <div class="grid md:grid-cols-2 gap-6">
-        <div class="bg-white shadow-lg rounded-lg p-6 card">
-          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 1: Problem-Solving Mastery</h3>
-          <p class="text-gray-600">
-            DSA enhances problem-solving skills by encouraging logical thinking and structured approaches. It helps break down complex problems into smaller, manageable steps, fostering a solution-oriented mindset essential for programming and beyond.
+    <section class="py-20 px-4">
+      <div class="container mx-auto max-w-7xl">
+        <div class="text-center mb-16 fade-in-up">
+          <h2 class="text-5xl font-bold text-white mb-6">
+            Why Choose <span class="gradient-text">DSA?</span>
+          </h2>
+          <p class="text-xl text-white/80 max-w-3xl mx-auto">
+            Discover the transformative power of mastering data structures and algorithms
           </p>
         </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 card">
-          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 2: Building Efficient Solutions</h3>
-          <p class="text-gray-600">
-            Understanding algorithms ensures that solutions are not only correct but also optimized for speed and resource usage. This efficiency is crucial for applications handling vast amounts of data or requiring real-time responses.
-          </p>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 card">
-          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 3: Competitive Programming</h3>
-          <p class="text-gray-600">
-            Competitive programming relies heavily on DSA knowledge. It equips programmers with the tools needed to solve challenging problems under time constraints, sharpening their skills for real-world applications.
-          </p>
-        </div>
-        <div class="bg-white shadow-lg rounded-lg p-6 card">
-          <h3 class="text-2xl font-bold text-blue-600 mb-3">Reason 4: Cracking Technical Interviews</h3>
-          <p class="text-gray-600">
-            DSA is a cornerstone of technical interviews for software development roles. Employers value candidates who can design optimized solutions, making DSA expertise a critical asset for career growth.
-          </p>
+
+        <div class="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+          <!-- Reason 1 -->
+          <div class="glass-morphism rounded-3xl p-8 card-hover fade-in-up neon-glow" style="animation-delay: 0.1s;">
+            <div class="text-center mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-blue-400 to-blue-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-float">
+                <span class="text-4xl">🧩</span>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">Problem-Solving Mastery</h3>
+            </div>
+            <p class="text-white/90 text-lg leading-relaxed text-center">
+              Transform complex challenges into manageable solutions. DSA teaches you to break down problems systematically, developing a structured approach that applies far beyond programming.
+            </p>
+            <div class="mt-6 flex justify-center">
+              <div class="px-4 py-2 bg-blue-500/20 text-blue-200 rounded-full text-sm font-medium">
+                Critical Thinking
+              </div>
+            </div>
+          </div>
+
+          <!-- Reason 2 -->
+          <div class="glass-morphism rounded-3xl p-8 card-hover fade-in-up neon-glow" style="animation-delay: 0.2s;">
+            <div class="text-center mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-green-400 to-green-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-float" style="animation-delay: 1s;">
+                <span class="text-4xl">⚡</span>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">Efficiency Excellence</h3>
+            </div>
+            <p class="text-white/90 text-lg leading-relaxed text-center">
+              Create lightning-fast solutions that scale beautifully. Learn to optimize for speed and memory, ensuring your applications perform flawlessly even with massive datasets.
+            </p>
+            <div class="mt-6 flex justify-center">
+              <div class="px-4 py-2 bg-green-500/20 text-green-200 rounded-full text-sm font-medium">
+                Performance Optimization
+              </div>
+            </div>
+          </div>
+
+          <!-- Reason 3 -->
+          <div class="glass-morphism rounded-3xl p-8 card-hover fade-in-up neon-glow" style="animation-delay: 0.3s;">
+            <div class="text-center mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-purple-400 to-purple-600 rounded-full flex items-center justify-center mx-auto mb-4 animate-float" style="animation-delay: 2s;">
+                <span class="text-4xl">🏆</span>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">Competitive Edge</h3>
+            </div>
+            <p class="text-white/90 text-lg leading-relaxed text-center">
+              Excel in competitive programming and coding contests. Develop the speed and accuracy needed to solve challenging problems under pressure, building confidence and expertise.
+            </p>
+            <div class="mt-6 flex justify-center">
+              <div class="px-4 py-2 bg-purple-500/20 text-purple-200 rounded-full text-sm font-medium">
+                Contest Ready
+              </div>
+            </div>
+          </div>
+
+          <!-- Reason 4 -->
+          <div class="glass-morphism rounded-3xl p-8 card-hover fade-in-up neon-glow" style="animation-delay: 0.4s;">
+            <div class="text-center mb-6">
+              <div class="w-20 h-20 bg-gradient-to-br from-orange-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-float" style="animation-delay: 3s;">
+                <span class="text-4xl">💼</span>
+              </div>
+              <h3 class="text-3xl font-bold text-white mb-4">Career Catalyst</h3>
+            </div>
+            <p class="text-white/90 text-lg leading-relaxed text-center">
+              Unlock doors to top-tier tech companies. DSA mastery is essential for technical interviews at Google, Amazon, Microsoft, and other leading organizations worldwide.
+            </p>
+            <div class="mt-6 flex justify-center">
+              <div class="px-4 py-2 bg-orange-500/20 text-orange-200 rounded-full text-sm font-medium">
+                Interview Success
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- Benefits Section -->
-    <section class="mt-10 fade-in">
-      <div class="bg-gradient-to-r from-green-100 to-green-200 shadow-lg rounded-lg p-8 text-center">
-        <h2 class="text-3xl font-bold text-green-700 mb-4">How DSA Transforms You?</h2>
-        <ul class="list-disc list-inside text-left text-gray-700 leading-relaxed">
-          <li>Improves logical and analytical thinking.</li>
-          <li>Prepares you for solving real-world engineering challenges.</li>
-          <li>Enables efficient use of computational resources.</li>
-          <li>Builds a strong foundation for learning advanced technologies.</li>
-          <li>Provides an edge in competitive programming and interviews.</li>
-        </ul>
+    <section class="py-20 px-4">
+      <div class="container mx-auto max-w-6xl">
+        <div class="glass-morphism rounded-3xl p-8 md:p-12 card-hover fade-in-up">
+          <div class="text-center mb-12">
+            <h2 class="text-5xl font-bold text-white mb-6">
+              Transform Your <span class="gradient-text">Mindset</span>
+            </h2>
+            <p class="text-xl text-white/80 max-w-3xl mx-auto">
+              DSA doesn't just teach you to code—it transforms how you think about problems and solutions
+            </p>
+          </div>
+
+          <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div class="text-center slide-in-left" style="animation-delay: 0.1s;">
+              <div class="w-16 h-16 bg-gradient-to-br from-cyan-400 to-blue-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-slow">
+                <span class="text-2xl">🧠</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Logical Thinking</h3>
+              <p class="text-white/80">Develop systematic approaches to complex problems</p>
+            </div>
+
+            <div class="text-center fade-in-up" style="animation-delay: 0.2s;">
+              <div class="w-16 h-16 bg-gradient-to-br from-green-400 to-teal-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-slow">
+                <span class="text-2xl">🔧</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Engineering Excellence</h3>
+              <p class="text-white/80">Build robust, scalable solutions for real-world challenges</p>
+            </div>
+
+            <div class="text-center slide-in-right" style="animation-delay: 0.3s;">
+              <div class="w-16 h-16 bg-gradient-to-br from-purple-400 to-pink-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-slow">
+                <span class="text-2xl">📈</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Continuous Growth</h3>
+              <p class="text-white/80">Foundation for learning advanced technologies</p>
+            </div>
+
+            <div class="text-center slide-in-left" style="animation-delay: 0.4s;">
+              <div class="w-16 h-16 bg-gradient-to-br from-yellow-400 to-orange-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-slow">
+                <span class="text-2xl">⚡</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Resource Optimization</h3>
+              <p class="text-white/80">Efficient use of computational resources</p>
+            </div>
+
+            <div class="text-center fade-in-up" style="animation-delay: 0.5s;">
+              <div class="w-16 h-16 bg-gradient-to-br from-indigo-400 to-purple-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-slow">
+                <span class="text-2xl">🎯</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Competitive Advantage</h3>
+              <p class="text-white/80">Excel in programming contests and interviews</p>
+            </div>
+
+            <div class="text-center slide-in-right" style="animation-delay: 0.6s;">
+              <div class="w-16 h-16 bg-gradient-to-br from-pink-400 to-red-500 rounded-full flex items-center justify-center mx-auto mb-4 animate-pulse-slow">
+                <span class="text-2xl">🚀</span>
+              </div>
+              <h3 class="text-xl font-bold text-white mb-2">Innovation Catalyst</h3>
+              <p class="text-white/80">Foundation for creating breakthrough solutions</p>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
-    <!-- Interaction Section -->
-    <section class="text-center mt-10 flex justify-center gap-1 flex-wrap">
-      <button id="toggleReasons" class="px-6 py-3 bg-blue-500 text-white font-bold rounded hover:bg-blue-600">
-        Toggle Reasons Visibility
-      </button>
-      <button id="highlightReasons" class="ml-4 px-6 py-3 bg-green-500 text-white font-bold rounded hover:bg-green-600">
-        Highlight Key Points
-      </button>
+    <!-- Interactive Section -->
+    <section class="py-20 px-4">
+      <div class="container mx-auto max-w-4xl text-center">
+        <div class="fade-in-up">
+          <h2 class="text-4xl font-bold text-white mb-8">
+            Ready to <span class="gradient-text">Transform</span> Your Skills?
+          </h2>
+          <div class="flex flex-wrap justify-center gap-6">
+            <button id="animateReasons" class="px-8 py-4 bg-gradient-to-r from-blue-500 to-purple-600 text-white font-bold rounded-full hover:from-blue-600 hover:to-purple-700 transform hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-blue-500/25 neon-glow">
+              🎨 Animate Cards
+            </button>
+            <button id="toggleReasons" class="px-8 py-4 bg-gradient-to-r from-green-500 to-teal-600 text-white font-bold rounded-full hover:from-green-600 hover:to-teal-700 transform hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-green-500/25 neon-glow">
+              👁️ Toggle Visibility
+            </button>
+            <button id="highlightReasons" class="px-8 py-4 bg-gradient-to-r from-orange-500 to-red-600 text-white font-bold rounded-full hover:from-orange-600 hover:to-red-700 transform hover:scale-110 transition-all duration-300 shadow-2xl hover:shadow-orange-500/25 neon-glow">
+              ✨ Highlight Benefits
+            </button>
+          </div>
+        </div>
+      </div>
     </section>
   </main>
 
   <!-- Footer -->
-  <footer class="bg-gray-800 text-white py-6">
+  <footer class="glass-morphism py-12 px-4 mt-20">
     <div class="container mx-auto text-center">
-      <p>&copy; 2024 My DSA Journey | Designed with Passion and Tailwind CSS</p>
+      <div class="mb-6">
+        <div class="text-6xl font-black gradient-text mb-4">DSA</div>
+        <p class="text-white/80 text-lg">Your journey to computational excellence starts here</p>
+      </div>
+      <div class="flex justify-center space-x-8 mb-6">
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white">1000+</div>
+          <div class="text-white/60">Problems Solved</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white">50+</div>
+          <div class="text-white/60">Algorithms Mastered</div>
+        </div>
+        <div class="text-center">
+          <div class="text-3xl font-bold text-white">∞</div>
+          <div class="text-white/60">Possibilities Unlocked</div>
+        </div>
+      </div>
+      <p class="text-white/60">&copy; 2024 DSA Journey | Crafted with passion and precision</p>
     </div>
   </footer>
 
   <!-- JavaScript -->
   <script>
     document.addEventListener('DOMContentLoaded', () => {
-      const reasons = document.querySelectorAll('.fade-in');
-      const toggleButton = document.getElementById('toggleReasons');
-      const highlightButton = document.getElementById('highlightReasons');
+      const reasonCards = document.querySelectorAll('.card-hover');
+      const fadeElements = document.querySelectorAll('.fade-in-up, .slide-in-left, .slide-in-right');
+      const animateBtn = document.getElementById('animateReasons');
+      const toggleBtn = document.getElementById('toggleReasons');
+      const highlightBtn = document.getElementById('highlightReasons');
 
-      // Animate reasons on page load
-      setTimeout(() => {
-        reasons.forEach(reason => reason.classList.add('active'));
-      }, 200);
+      // Intersection Observer for scroll animations
+      const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+      };
 
-      // Toggle visibility of reasons
-      toggleButton.addEventListener('click', () => {
-        reasons.forEach(reason => reason.classList.toggle('active'));
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('active');
+          }
+        });
+      }, observerOptions);
+
+      fadeElements.forEach(element => {
+        observer.observe(element);
+      });
+
+      // Animate reasons
+      animateBtn.addEventListener('click', () => {
+        reasonCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.style.transform = 'scale(1.1) rotate(5deg)';
+            card.style.transition = 'all 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55)';
+            
+            setTimeout(() => {
+              card.style.transform = 'scale(1) rotate(0deg)';
+            }, 600);
+          }, index * 150);
+        });
+      });
+
+      // Toggle visibility
+      toggleBtn.addEventListener('click', () => {
+        reasonCards.forEach((card, index) => {
+          setTimeout(() => {
+            card.classList.toggle('opacity-0');
+            card.classList.toggle('scale-0');
+          }, index * 100);
+        });
       });
 
       // Highlight reasons
-      highlightButton.addEventListener('click', () => {
-        reasons.forEach((reason, index) => {
+      highlightBtn.addEventListener('click', () => {
+        reasonCards.forEach((card, index) => {
           setTimeout(() => {
-            reason.classList.add('highlight');
-            setTimeout(() => reason.classList.remove('highlight'), 1000);
-          }, index * 300);
+            card.style.background = 'rgba(255, 255, 255, 0.3)';
+            card.style.transform = 'translateY(-20px) scale(1.05)';
+            card.style.boxShadow = '0 40px 80px rgba(255, 255, 255, 0.2)';
+            
+            setTimeout(() => {
+              card.style.background = 'rgba(255, 255, 255, 0.1)';
+              card.style.transform = 'translateY(0) scale(1)';
+              card.style.boxShadow = '0 8px 32px rgba(0, 0, 0, 0.1)';
+            }, 1500);
+          }, index * 200);
+        });
+      });
+
+      // Create floating particles
+      function createParticle() {
+        const particle = document.createElement('div');
+        particle.className = 'particle';
+        particle.style.left = Math.random() * 100 + 'vw';
+        particle.style.animationDuration = Math.random() * 3 + 2 + 's';
+        particle.style.opacity = Math.random();
+        particle.style.width = particle.style.height = Math.random() * 10 + 5 + 'px';
+        particle.style.background = `hsl(${Math.random() * 360}, 50%, 50%)`;
+        document.body.appendChild(particle);
+
+        setTimeout(() => {
+          particle.remove();
+        }, 5000);
+      }
+
+      // Create particles periodically
+      setInterval(createParticle, 300);
+
+      // Add smooth scrolling
+      document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+          e.preventDefault();
+          document.querySelector(this.getAttribute('href')).scrollIntoView({
+            behavior: 'smooth'
+          });
         });
       });
     });
