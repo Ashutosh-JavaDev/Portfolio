@@ -21,7 +21,7 @@ header {
 }
 .box1 {
   background-image: linear-gradient(rgba(0, 0, 0, 0), rgba(0, 0, 0, 0.63)),
-    url("/Portfolio/Image/pexels-juan-salamanca-61129.jpg ");
+    url("../Image/pexels-juan-salamanca-61129.jpg");
   /* background-position: center; */
   background-size: cover;
   height: 100vh;
@@ -212,7 +212,7 @@ header {
 /* box  3 */
 .box3 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.582), rgba(0, 0, 0, 0.788)),
-    url("/Portfolio/Image/Picsart_23-12-12_13-26-13-650.jpg");
+  url("../Image/Picsart_23-12-12_13-26-13-650.jpg");
   height: 50vh;
   background-position: center;
   background-size: cover;
@@ -313,7 +313,7 @@ header {
 /* box  5 */
 .box5 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.226), rgba(0, 0, 0, 0.63)),
-    url("/Portfolio/Image/pexels-archie-binamira-707185.jpg");
+  url("../Image/pexels-archie-binamira-707185.jpg");
   height: 50vh;
   background-position: center;
   background-size: cover;
@@ -410,7 +410,7 @@ header {
 /* Box 7 */
 .box7 {
   background-image: linear-gradient(rgba(0, 0, 0, 0.233), rgba(0, 0, 0, 0.788)),
-    url("/Portfolio/Image/pexels-riccardo-307008.jpg");
+  url("../Image/pexels-riccardo-307008.jpg");
   height: 50vh;
   background-position: center;
   background-size: cover;
