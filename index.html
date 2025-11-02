@@ -94,6 +94,37 @@
         .mobile-menu.open {
             transform: translateX(0);
         }
+
+        @keyframes slideInDown {
+            from {
+                opacity: 0;
+                transform: translateY(-30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes scaleInUp {
+            from {
+                opacity: 0;
+                transform: scale(0.9) translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1) translateY(0);
+            }
+        }
+
+        .animate-slideInDown {
+            animation: slideInDown 0.8s ease-out;
+        }
+
+        .animate-scaleInUp {
+            animation: scaleInUp 0.6s ease-out;
+        }
+
     </style>
 </head>
 
@@ -122,6 +153,10 @@
                     </a>
                     <a href="#projects" class="relative text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium group">
                         Projects
+                        <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
+                    </a>
+                    <a href="#certificates" class="relative text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium group">
+                        Certificates
                         <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-blue-600 to-purple-600 transition-all duration-300 group-hover:w-full"></span>
                     </a>
                     <a href="#education" class="relative text-gray-700 hover:text-blue-600 transition-colors duration-300 font-medium group">
@@ -153,6 +188,7 @@
                 <a href="#home" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Home</a>
                 <a href="#skills" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Skills</a>
                 <a href="#projects" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Projects</a>
+                <a href="#certificates" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Certificates</a>
                 <a href="#education" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Education</a>
                 <a href="#blog" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Blog</a>
                 <a href="#contact" class="text-2xl font-semibold text-gray-800 hover:text-blue-600 transition-colors" onclick="toggleMobileMenu()">Contact</a>
@@ -795,6 +831,163 @@
                             </div>
                             <a href="https://www.webbilliant.in/" target="_blank" class="text-blue-600 hover:text-blue-800 font-medium">
                                 View Live →
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Certificates Section -->
+    <section id="certificates" class="py-20 bg-gray-50">
+        <div class="container mx-auto px-6">
+            <!-- Section Header with Fade/Slide Animation -->
+            <div class="text-center mb-16 animate-slideInDown">
+                <h2 class="text-4xl lg:text-5xl font-bold mb-6 font-poppins">
+                    <span class="bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                        Certificates & Achievements
+                    </span>
+                </h2>
+                <div class="w-24 h-1 bg-gradient-to-r from-blue-600 to-purple-600 mx-auto mb-6 rounded-full"></div>
+                <p class="text-xl text-gray-600 max-w-3xl mx-auto leading-relaxed">
+                    Professional certifications and achievements that validate my expertise and commitment to continuous learning.
+                </p>
+            </div>
+
+            <!-- Certificates Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-6xl mx-auto">
+                <!-- Python Programming Certificate -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover animate-scaleInUp">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-blue-400 to-blue-600 h-48 flex items-center justify-center">
+                        <img
+                            src="https://images.pexels.com/photos/5632399/pexels-photo-5632399.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="JP Morgan Programming Certificate"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 font-poppins group-hover:text-blue-600 transition-colors">
+                            Software Engineer
+                        </h3>
+                        <h4 class="text-sm font-semibold text-blue-600 mb-1">J.P. Morgan Chase & Co.</h4>
+                        <p class="text-xs text-gray-500 mb-4">Professional Development Track</p>
+
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            I developed and enhanced the Midas Core System. Implemented real-time transaction handling using Kafka, managed data with H2 database, and built a REST API (/balance) in Spring Boot to query user balances.
+                        </p>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-500">Issued: 2025</span>
+                            <a href="https://www.linkedin.com/posts/ashutosh-ayush-128ba8283_jpmorgan-internship-activity-7390131339661930496-aNsa?utm_source=share&utm_medium=member_desktop&rcm=ACoAAEUN1LABGmb6-WnrSejMl7tmu-Ix6fYNRa0" target="_blank" class="inline-flex items-center px-4 py-2 bg-blue-600 text-white rounded-xl font-medium hover:bg-blue-700 transition-colors duration-300 transform hover:scale-105">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Web Development Certificate -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover animate-scaleInUp" style="animation-delay: 0.1s;">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-green-400 to-green-600 h-48 flex items-center justify-center">
+                        <img
+                            src="https://images.pexels.com/photos/6953867/pexels-photo-6953867.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Web Development Certificate"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 font-poppins group-hover:text-green-600 transition-colors">
+                            Full Stack Web Development
+                        </h3>
+                        <h4 class="text-sm font-semibold text-green-600 mb-1">Udemy</h4>
+                        <p class="text-xs text-gray-500 mb-4">Complete Web Development Bootcamp</p>
+
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Comprehensive training in modern web development including HTML, CSS, JavaScript, React, and backend technologies.
+                        </p>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-500">Issued: 2024</span>
+                            <a href="https://drive.google.com" target="_blank" class="inline-flex items-center px-4 py-2 bg-green-600 text-white rounded-xl font-medium hover:bg-green-700 transition-colors duration-300 transform hover:scale-105">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Database Management Certificate -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover animate-scaleInUp" style="animation-delay: 0.2s;">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-orange-400 to-orange-600 h-48 flex items-center justify-center">
+                        <img
+                            src="https://images.pexels.com/photos/3584994/pexels-photo-3584994.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Database Management Certificate"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 font-poppins group-hover:text-orange-600 transition-colors">
+                            Advanced MySQL Database
+                        </h3>
+                        <h4 class="text-sm font-semibold text-orange-600 mb-1">LinkedIn Learning</h4>
+                        <p class="text-xs text-gray-500 mb-4">Database Design & Optimization</p>
+
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Expert-level training in MySQL database design, optimization, normalization, and advanced query techniques.
+                        </p>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-500">Issued: 2023</span>
+                            <a href="https://drive.google.com" target="_blank" class="inline-flex items-center px-4 py-2 bg-orange-600 text-white rounded-xl font-medium hover:bg-orange-700 transition-colors duration-300 transform hover:scale-105">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                View
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Java Programming Certificate -->
+                <div class="group bg-white rounded-3xl overflow-hidden shadow-lg hover:shadow-2xl transition-all duration-500 transform hover:-translate-y-2 card-hover animate-scaleInUp" style="animation-delay: 0.3s;">
+                    <div class="relative overflow-hidden bg-gradient-to-br from-red-400 to-red-600 h-48 flex items-center justify-center">
+                        <img
+                            src="https://images.pexels.com/photos/943096/pexels-photo-943096.jpeg?auto=compress&cs=tinysrgb&w=400"
+                            alt="Java Programming Certificate"
+                            class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
+                        />
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    </div>
+
+                    <div class="p-6">
+                        <h3 class="text-xl font-bold text-gray-900 mb-2 font-poppins group-hover:text-red-600 transition-colors">
+                            Java for Enterprise Applications
+                        </h3>
+                        <h4 class="text-sm font-semibold text-red-600 mb-1">Oracle University</h4>
+                        <p class="text-xs text-gray-500 mb-4">Enterprise Java Development</p>
+
+                        <p class="text-gray-600 text-sm mb-4 leading-relaxed">
+                            Specialized training in enterprise Java development, Spring Framework, and building scalable applications.
+                        </p>
+
+                        <div class="flex items-center justify-between pt-4 border-t border-gray-100">
+                            <span class="text-xs text-gray-500">Issued: 2024</span>
+                            <a href="https://drive.google.com" target="_blank" class="inline-flex items-center px-4 py-2 bg-red-600 text-white rounded-xl font-medium hover:bg-red-700 transition-colors duration-300 transform hover:scale-105">
+                                <svg class="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14"></path>
+                                </svg>
+                                View
                             </a>
                         </div>
                     </div>
