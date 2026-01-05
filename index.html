@@ -14,8 +14,18 @@
       href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=Poppins:wght@300;400;500;600;700;800;900&display=swap"
       rel="stylesheet"
     />
+    <!-- <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script> -->
+    <!-- <link href="styles.css" rel="stylesheet"> -->
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+      // Suppress Tailwind CDN warning
+      tailwind.config = {
+        corePlugins: {
+          preflight: false,
+        }
+      }
+    </script>
     <!-- Custom Styles -->
     <style>
       @layer base {
@@ -2300,89 +2310,89 @@
           </div>
 
           <!-- Contact Form -->
-           <div class="min-h-screen flex items-center justify-center p-4">
-    <div class="w-full max-w-md">
-      <div class="bg-gradient-to-br from-blue-50 to-blue-50 rounded-3xl p-8 card-hover">
-        <h3 class="text-2xl font-bold text-gray-900 mb-6 font-poppins">
-          Send Message
-        </h3>
-
-        <form id="feedbackForm" class="space-y-6">
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              Name
-            </label>
-            <input
-              id="name"
-              type="text"
-              class="w-full px-4 py-3 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              placeholder="Your full name"
-              required
-            />
+          <div class="min-h-screen flex items-center justify-center p-4">
+            <div class="w-full max-w-md">
+              <div class="bg-white rounded-3xl p-8 shadow-xl">
+                <h3 class="text-2xl font-bold text-gray-900 mb-6">
+                  Send Message
+                </h3>
+        
+                <form id="feedbackForm" class="space-y-6">
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                      Name
+                    </label>
+                    <input
+                      id="name"
+                      type="text"
+                      class="w-full px-4 py-3 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      placeholder="Your full name"
+                      required
+                    />
+                  </div>
+        
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                      Email
+                    </label>
+                    <input
+                      id="email"
+                      type="email"
+                      class="w-full px-4 py-3 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+        
+                  <div>
+                    <label class="block text-sm font-semibold text-gray-700 mb-2">
+                      Message
+                    </label>
+                    <textarea
+                      id="message"
+                      rows="5"
+                      class="w-full px-4 py-3 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
+                      placeholder="Tell me about your project..."
+                      required
+                    ></textarea>
+                  </div>
+        
+                  <button
+                    type="submit"
+                    id="submitBtn"
+                    class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
+                  >
+                    <svg
+                      class="w-5 h-5 mr-2"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        stroke-linecap="round"
+                        stroke-linejoin="round"
+                        stroke-width="2"
+                        d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
+                      ></path>
+                    </svg>
+                    <span id="btnText">Send Message</span>
+                  </button>
+        
+                  <div id="successMessage" class="hidden p-4 bg-green-100 border border-green-300 rounded-2xl text-green-700 text-sm font-semibold">
+                    ✓ Message sent successfully!
+                  </div>
+        
+                  <div id="errorMessage" class="hidden p-4 bg-red-100 border border-red-300 rounded-2xl text-red-700 text-sm font-semibold">
+                    <span id="errorText">✗ Failed to send message. Please try again.</span>
+                  </div>
+                </form>
+              </div>
+            </div>
           </div>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              Email
-            </label>
-            <input
-              id="email"
-              type="email"
-              class="w-full px-4 py-3 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300"
-              placeholder="your.email@example.com"
-              required
-            />
-          </div>
+  <script src="./main.js"></script>
 
-          <div>
-            <label class="block text-sm font-semibold text-gray-700 mb-2">
-              Message
-            </label>
-            <textarea
-              id="message"
-              rows="5"
-              class="w-full px-4 py-3 bg-white border border-gray-200 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-300 resize-none"
-              placeholder="Tell me about your project..."
-              required
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            id="submitBtn"
-            class="w-full px-8 py-4 bg-gradient-to-r from-blue-600 to-blue-600 text-white rounded-2xl font-semibold hover:shadow-2xl hover:shadow-blue-500/25 transition-all duration-300 transform hover:-translate-y-1 flex items-center justify-center"
-          >
-            <svg
-              class="w-5 h-5 mr-2"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-            >
-              <path
-                stroke-linecap="round"
-                stroke-linejoin="round"
-                stroke-width="2"
-                d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"
-              ></path>
-            </svg>
-            <span id="btnText">Send Message</span>
-          </button>
-
-          <div id="successMessage" class="hidden p-4 bg-green-100 border border-green-300 rounded-2xl text-green-700 text-sm font-semibold">
-            Message sent successfully!
-          </div>
-
-          <div id="errorMessage" class="hidden p-4 bg-red-100 border border-red-300 rounded-2xl text-red-700 text-sm font-semibold">
-            <span id="errorText"></span>
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-
-  <script type="module" src="./main.js"></script>
-
-    </section>
+    </section>ram
 
     <!-- Footer -->
     <footer class="bg-gray-900 text-white py-12">

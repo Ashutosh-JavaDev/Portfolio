@@ -1,68 +1,62 @@
-const supabaseUrl = import.meta.env.VITE_SUPABASE_URL;
-const anonKey = import.meta.env.VITE_SUPABASE_SUPABASE_ANON_KEY;
 
-const form = document.getElementById('feedbackForm');
-const submitBtn = document.getElementById('submitBtn');
-const btnText = document.getElementById('btnText');
-const successMessage = document.getElementById('successMessage');
-const errorMessage = document.getElementById('errorMessage');
-const errorText = document.getElementById('errorText');
+  const form = document.getElementById('feedbackForm');
+  const submitBtn = document.getElementById('submitBtn');
+  const btnText = document.getElementById('btnText');
+  const successMessage = document.getElementById('successMessage');
+  const errorMessage = document.getElementById('errorMessage');
+  const errorText = document.getElementById('errorText');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+  form.addEventListener('submit', async (e) => {
+    e.preventDefault();
 
-  const name = document.getElementById('name').value.trim();
-  const email = document.getElementById('email').value.trim();
-  const message = document.getElementById('message').value.trim();
+    // Get form data
+    const formData = {
+      name: document.getElementById('name').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      message: document.getElementById('message').value.trim()
+    };
 
-  if (!name || !email || !message) {
-    showError('Please fill in all fields');
-    return;
-  }
+    console.log('Submitting form data:', formData);
 
-  submitBtn.disabled = true;
-  btnText.textContent = 'Sending...';
-  successMessage.classList.add('hidden');
-  errorMessage.classList.add('hidden');
-
-  try {
-    const response = await fetch(`${supabaseUrl}/functions/v1/submit-feedback`, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${anonKey}`,
-      },
-      body: JSON.stringify({
-        name,
-        email,
-        message,
-      }),
-    });
-
-    if (!response.ok) {
-      const error = await response.json();
-      throw new Error(error.message || 'Failed to submit feedback');
-    }
-
-    successMessage.classList.remove('hidden');
-    form.reset();
-    btnText.textContent = 'Send Message';
-
-    setTimeout(() => {
-      successMessage.classList.add('hidden');
-    }, 5000);
-  } catch (error) {
-    showError(error.message || 'An error occurred. Please try again.');
-    btnText.textContent = 'Send Message';
-  } finally {
-    submitBtn.disabled = false;
-  }
-});
-
-function showError(message) {
-  errorText.textContent = message;
-  errorMessage.classList.remove('hidden');
-  setTimeout(() => {
+    // Disable button and show loading
+    submitBtn.disabled = true;
+    btnText.textContent = 'Sending...';
+    successMessage.classList.add('hidden');
     errorMessage.classList.add('hidden');
-  }, 5000);
-}
+
+    try {
+      // Send data to backend API
+      const response = await fetch('http://localhost:3000/api/messages', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(formData)
+      });
+
+      const result = await response.json();
+      console.log('Server response:', result);
+
+      if (response.ok) {
+        // Show success message
+        successMessage.classList.remove('hidden');
+        form.reset();
+        
+        // Hide success message after 5 seconds
+        setTimeout(() => {
+          successMessage.classList.add('hidden');
+        }, 5000);
+      } else {
+        throw new Error(result.error || 'Failed to send message');
+      }
+    } catch (error) {
+      console.error('Error:', error);
+      // Show error message
+      errorText.textContent = '✗ ' + error.message;
+      errorMessage.classList.remove('hidden');
+    } finally {
+      // Re-enable button
+      submitBtn.disabled = false;
+      btnText.textContent = 'Send Message';
+    }
+  });
