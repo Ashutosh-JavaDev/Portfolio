@@ -26,7 +26,7 @@
 
     try {
       // Send data to backend API
-      const response = await fetch('http://localhost:3000/api/messages', {
+      const response = await fetch('portfolio-production-2005.up.railway.app', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
