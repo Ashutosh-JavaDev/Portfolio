@@ -26,7 +26,7 @@
 
     try {
       // Send data to backend API
-      const response = await fetch('https://ashutoshworks.in/portfolio-production-2005.up.railway.app/contact', {
+      const response = await fetch('https://ashutoshworks.in/portfolio-production-2005.up.railway.app', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
