@@ -49,7 +49,7 @@ app.post('/api/messages', (req, res) => {
   }
 
   // SQL query to insert data
-  const sql = 'INSERT INTO messages (name, email, message, created_at) VALUES (?, ?, ?, NOW())';
+  const sql = 'INSERT INTO messages (name, email, message) VALUES (?, ?, ?)';
   
   db.query(sql, [name, email, message], (err, result) => {
     if (err) {
