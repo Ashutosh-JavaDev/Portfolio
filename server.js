@@ -1,21 +1,23 @@
+require('dotenv').config();
 const express = require('express');
 const mysql = require('mysql2');
 const cors = require('cors');
 const bodyParser = require('body-parser');
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
 // Middleware
 app.use(cors());
 app.use(bodyParser.json());
 
-// MySQL Database Connection
+// MySQL Database Connection - Works with both local and Railway
 const db = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',          // Your MySQL username
-  password: '@Radhakrishna297',  // Change this to your MySQL password
-  database: 'contact_db'
+  host: process.env.MYSQLHOST || 'localhost',
+  port: process.env.MYSQLPORT || 3306,
+  user: process.env.MYSQLUSER || 'root',
+  password: process.env.MYSQLPASSWORD || '@Radhakrishna297',
+  database: process.env.MYSQLDATABASE || 'contact_db'
 });
 
 // Connect to database
@@ -24,7 +26,17 @@ db.connect((err) => {
     console.error('Database connection failed:', err);
     return;
   }
-  console.log('Connected to MySQL database');
+  console.log('✅ Connected to MySQL database');
+  console.log('📍 Database host:', process.env.MYSQLHOST || 'localhost');
+});
+
+// Health check endpoint
+app.get('/', (req, res) => {
+  res.json({ 
+    status: 'Server is running!', 
+    timestamp: new Date(),
+    environment: process.env.NODE_ENV || 'development'
+  });
 });
 
 // API endpoint to receive form data
@@ -45,6 +57,7 @@ app.post('/api/messages', (req, res) => {
       return res.status(500).json({ error: 'Failed to save message' });
     }
     
+    console.log('✅ Message saved successfully, ID:', result.insertId);
     res.status(201).json({ 
       success: true, 
       message: 'Message saved successfully',
@@ -53,7 +66,7 @@ app.post('/api/messages', (req, res) => {
   });
 });
 
-// API endpoint to get all messages (optional)
+// API endpoint to get all messages
 app.get('/api/messages', (req, res) => {
   const sql = 'SELECT * FROM messages ORDER BY created_at DESC';
   
@@ -67,5 +80,5 @@ app.get('/api/messages', (req, res) => {
 });
 
 app.listen(PORT, () => {
-  console.log(`Server running on http://localhost:${PORT}`);
+  console.log(`🚀 Server running on port ${PORT}`);
 });
