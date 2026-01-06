@@ -1,61 +1,71 @@
-const form = document.getElementById('feedbackForm');
-const submitBtn = document.getElementById('submitBtn');
-const btnText = document.getElementById('btnText');
-const successMessage = document.getElementById('successMessage');
-const errorMessage = document.getElementById('errorMessage');
-const errorText = document.getElementById('errorText');
+const express = require('express');
+const mysql = require('mysql2');
+const cors = require('cors');
+const bodyParser = require('body-parser');
 
-form.addEventListener('submit', async (e) => {
-  e.preventDefault();
+const app = express();
+const PORT = 3000;
 
-  // Get form data
-  const formData = {
-    name: document.getElementById('name').value.trim(),
-    email: document.getElementById('email').value.trim(),
-    message: document.getElementById('message').value.trim()
-  };
+// Middleware
+app.use(cors());
+app.use(bodyParser.json());
 
-  console.log('Submitting form data:', formData);
+// MySQL Database Connection
+const db = mysql.createConnection({
+  host: 'localhost',
+  user: 'root',          // Your MySQL username
+  password: '@Radhakrishna297',  // Change this to your MySQL password
+  database: 'contact_db'
+});
 
-  // Disable button and show loading
-  submitBtn.disabled = true;
-  btnText.textContent = 'Sending...';
-  successMessage.classList.add('hidden');
-  errorMessage.classList.add('hidden');
-
-  try {
-    // Send data to backend API
-    const response = await fetch('http://localhost:3000/api/messages', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify(formData)
-    });
-
-    const result = await response.json();
-    console.log('Server response:', result);
-
-    if (response.ok) {
-      // Show success message
-      successMessage.classList.remove('hidden');
-      form.reset();
-      
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        successMessage.classList.add('hidden');
-      }, 5000);
-    } else {
-      throw new Error(result.error || 'Failed to send message');
-    }
-  } catch (error) {
-    console.error('Error:', error);
-    // Show error message
-    errorText.textContent = '✗ ' + error.message;
-    errorMessage.classList.remove('hidden');
-  } finally {
-    // Re-enable button
-    submitBtn.disabled = false;
-    btnText.textContent = 'Send Message';
+// Connect to database
+db.connect((err) => {
+  if (err) {
+    console.error('Database connection failed:', err);
+    return;
   }
+  console.log('Connected to MySQL database');
+});
+
+// API endpoint to receive form data
+app.post('/api/messages', (req, res) => {
+  const { name, email, message } = req.body;
+
+  // Validate input
+  if (!name || !email || !message) {
+    return res.status(400).json({ error: 'All fields are required' });
+  }
+
+  // SQL query to insert data
+  const sql = 'INSERT INTO messages (name, email, message, created_at) VALUES (?, ?, ?, NOW())';
+  
+  db.query(sql, [name, email, message], (err, result) => {
+    if (err) {
+      console.error('Error inserting data:', err);
+      return res.status(500).json({ error: 'Failed to save message' });
+    }
+    
+    res.status(201).json({ 
+      success: true, 
+      message: 'Message saved successfully',
+      id: result.insertId 
+    });
+  });
+});
+
+// API endpoint to get all messages (optional)
+app.get('/api/messages', (req, res) => {
+  const sql = 'SELECT * FROM messages ORDER BY created_at DESC';
+  
+  db.query(sql, (err, results) => {
+    if (err) {
+      console.error('Error fetching data:', err);
+      return res.status(500).json({ error: 'Failed to fetch messages' });
+    }
+    res.json(results);
+  });
+});
+
+app.listen(PORT, () => {
+  console.log(`Server running on http://localhost:${PORT}`);
 });
