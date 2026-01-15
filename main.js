@@ -8,26 +8,21 @@ const errorText = document.getElementById("errorText");
 form.addEventListener("submit", async (e) => {
   e.preventDefault();
 
-  // Get form data
   const formData = {
     name: document.getElementById("name").value.trim(),
     email: document.getElementById("email").value.trim(),
     message: document.getElementById("message").value.trim(),
   };
 
-  console.log("Submitting form data:", formData);
-
-  // Disable button and show loading
+  // UI state
   submitBtn.disabled = true;
   btnText.textContent = "Sending...";
   successMessage.classList.add("hidden");
   errorMessage.classList.add("hidden");
 
   try {
-    // Send data to backend API
-    // Change the URL to your ACTUAL Railway app URL + the route
     const response = await fetch(
-      "https://portfolio-production-2005.up.railway.app",
+      "https://portfolio-production-2005.up.railway.app/api/messages",
       {
         method: "POST",
         headers: {
@@ -37,28 +32,32 @@ form.addEventListener("submit", async (e) => {
       }
     );
 
+    const contentType = response.headers.get("content-type");
+
+    if (!contentType || !contentType.includes("application/json")) {
+      const text = await response.text();
+      throw new Error("Invalid server response (not JSON)");
+    }
+
     const result = await response.json();
-    console.log("Server response:", result);
 
-    if (response.ok) {
-      // Show success message
-      successMessage.classList.remove("hidden");
-      form.reset();
-
-      // Hide success message after 5 seconds
-      setTimeout(() => {
-        successMessage.classList.add("hidden");
-      }, 5000);
-    } else {
+    if (!response.ok) {
       throw new Error(result.error || "Failed to send message");
     }
+
+    // Success
+    successMessage.classList.remove("hidden");
+    form.reset();
+
+    setTimeout(() => {
+      successMessage.classList.add("hidden");
+    }, 5000);
+
   } catch (error) {
-    console.error("Error:", error);
-    // Show error message
     errorText.textContent = "✗ " + error.message;
     errorMessage.classList.remove("hidden");
+    console.error(error);
   } finally {
-    // Re-enable button
     submitBtn.disabled = false;
     btnText.textContent = "Send Message";
   }
